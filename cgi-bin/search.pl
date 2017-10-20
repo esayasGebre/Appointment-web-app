@@ -3,7 +3,7 @@
 use DBI;
 use CGI qw(:standard);
 use utf8;
-use Encode;
+use Encode; 		#for Use of uninitialized value in subroutine entry
 print header('application/json');
 use JSON -support_by_pp;
 
