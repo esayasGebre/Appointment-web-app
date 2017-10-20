@@ -65,10 +65,9 @@ function getAppointments(){
         success: function(data){
 		
             $('#tableContent').empty();
-         
+
             if( data.length === 0 ){
-             
-               $('#ifNoAppData').append('<h3>There is no appointment data Found... </h3>');
+		$('#ifNoAppData').append('<h3>There is no appointment with description__:  <em>' + search + '</em>.</h3>');
             }
             else{
                $('#ifNoAppData').empty();
@@ -87,7 +86,7 @@ function getAppointments(){
           
          },
          error: function(){
-            alert("Handle Errors: something is error in Ajax request.");
+            alert("Handle Errors: Something is error in Ajax request.");
         },
         complete: function() {
         }
