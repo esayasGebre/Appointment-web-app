@@ -1,4 +1,7 @@
 #!C:\xampp\perl/bin/perl.exe
+
+#DBI is the standard database interface module for Perl. It defines a set of methods, 
+#variables and conventions that provide a consistent database interface independent of the actual database being used.
 use DBI;
 use CGI qw(:standard -debug);
 
