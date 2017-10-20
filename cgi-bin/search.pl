@@ -1,7 +1,7 @@
 #!C:\xampp\perl/bin/perl.exe
 
 use DBI;
-use CGI qw(:standard);
+use CGI qw(:standard);	#for Function Oriented programming
 use utf8;
 use Encode; 		#for Use of uninitialized value in subroutine entry
 print header('application/json');
