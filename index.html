@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<title>Appointment App.</title>		
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div id='top'> </div>
+<div id='top1'> </div>
+
+	<div id="box">
+		<h2>Appointment App.</h2>
+		<hr>
+		<div id="box1">
+			<div>
+				<input id="newApp" type="button" value="NEW" class="btn btn-info"/>
+				<input  id="cancelApp" type="button" value="CANCEL" class="btn btn-info"/>
+			</div>
+			
+			<div id="addAppointment" style="display:none;">
+				<div>
+					<h5 id="ifError" class="text-danger"></h5>
+				</div>
+				<form id="appForm" METHOD="POST" ACTION="/cgi-bin/storeAppointment.pl">
+					<div>
+						<div>
+							<label >DATE:
+							 <input id="vDate" type="date" name="date" placeholder="Enter Date" required /></label>
+						</div>
+						<div>
+							<label>TIME :
+							 <input id="vTime" type="time" name="time" placeholder="Enter Time" required /></label>
+						</div>
+						<div>
+							<label class="val">DESC:</label>
+							 <!--<input id="description" type="text" name="description" placeholder="Enter Description" required class="form-control"/>-->
+							 <textarea name="description" cols="40" rows="5" placeholder="Enter Description" required ></textarea>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div>
+				<input id="searchText" type="text" size="20" placeholder="search here .." /> 
+				<input id = "searchButton" class="btn btn-info btn-sm" type="button" value="SEARCH" />
+			</div>
+		</div>
+		<hr>
+		<div>
+			<table id="dataTable" class="table table-hover" id="appointmentsContainer" border="0.5">
+				<tbody id="tableContent">
+					
+				</tbody>
+			</table>
+		</div>   
+		<div class="container"><p class="text-danger" id="ifNoAppData"></p> </div>
+		
+	</div>
+</body>
+<script type="text/javascript" src="js/script.js"></script>
+</html>
