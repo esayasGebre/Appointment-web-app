@@ -26,7 +26,7 @@ if($ENV{'REQUEST_METHOD'} eq 'POST'){
 		undef,
 		$date, $time,$descriptionValue);
   
-#clse database
+#close database
   $dbh->disconnect(); 
 }
 
