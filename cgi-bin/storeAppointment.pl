@@ -34,6 +34,6 @@ if($ENV{'REQUEST_METHOD'} eq 'POST'){
 }
 
 #Redirect to the main page (index.html in side directory perlApp)
-print ("Location: http://localhost\\perlApp\n");      
+print ("Location: http://localhost\\appointmentApp\n");      
 print ("Content-type: text/html\n\n");
  
