@@ -1,27 +1,30 @@
+$( document ).ready(function() {
+   $('#cancelApp').hide();
+});
 
-$('#newApp').click(function doSomething(){
+$('#newApp').click(function(){
    
    $('#ifError').empty();
    var value = $('#newApp').val();
 	if(value == 'NEW' ){
-		$('#newApp').attr({
-		type :'submit',
-		value:'ADD'
-		});
+		$('#newApp').attr({ type :'submit', value:'ADD' });
+		$('#addAppointment').show();
+      		$('#cancelApp').show();
 	}else{
-      var inputDate = $('#vDate').val();
-      var valid = isFutureDate(inputDate);
-      if(valid === true){
-            $("#appForm").submit();
-      }else{
-         $('#ifError').append("<strong>Error: Appointments shouldn't be made in the past.</strong>");
-      }
+		var inputDate = $('#vDate').val();
+		var valid = futureDate(inputDate);
+		
+      		if(valid === true){
+            		$("#appForm").submit();
+      		}else{
+         		$('#ifError').append("<strong>Error: Appointments shouldn't be made in the past.</strong>");
+      		}
 	}
 });
 
 //The DATE input should contain a date picker with built in validation.
 //(Appointments shouldn't be made in the past).
-function isFutureDate(inputDate) {
+function futureDate(inputDate) {
    var currentDate = new Date().getTime();
    ddate = inputDate.split("-");
    inputDate = new Date(ddate[0], ddate[1]-1, ddate[2]).getTime();
@@ -31,22 +34,7 @@ function isFutureDate(inputDate) {
 }
    
 $('#cancelApp').click(function(){
-   $('#newApp').attr({
-   type:'button',
-   value:'NEW'
-   });
-});
-
-$( document ).ready(function() {
-   $('#cancelApp').hide();
-});
-
-$('#newApp').click(function(){
-   $('#addAppointment').show();
-   $('#cancelApp').show();
-});
-
-$('#cancelApp').click(function(){
+   $('#newApp').attr({ type:'button', value:'NEW' });
    $('#addAppointment').hide();
    $('#cancelApp').hide();
 });
