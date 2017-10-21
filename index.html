@@ -7,8 +7,13 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
 	<title>Appointment App.</title>		
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
 </head>
 <body>
 
@@ -32,15 +37,15 @@
 					<div>
 						<div>
 							<label >DATE:
-							 <input id="vDate" type="date" name="date" placeholder="yyyy-mm-dd" required /></label>
+							 <input id="datepicker"" type="text" name="date" placeholder="MM/DD/YYYY" required="true" /></label>
 						</div>
 						<div>
 							<label>TIME :
-							 <input id="vTime" type="time" name="time" placeholder="--:-- --" required /></label>
+							 <input id="time" type="time" name="time" placeholder="--:-- --" required="true" /></label>
 						</div>
 						<div>
 							<label class="val">DESC:</label>
-							<textarea name="description" cols="40" rows="5" placeholder="Enter Description" required ></textarea>
+							<textarea id="description" name="description" cols="40" rows="5" placeholder="Enter Description" required="true" ></textarea>
 						</div>
 					</div>
 				</form>
@@ -52,7 +57,7 @@
 		</div>
 		<hr>
 		<div>
-			<table id="tableOfDate" class="table table-bordered">
+			<table id="tableOfData" class="table table-bordered">
 				<tbody id="tableContent">
 					
 				</tbody>
@@ -61,6 +66,7 @@
 		<div class="container"><p class="text-danger" id="ifNoAppData"></p> </div>
 		
 	</div>
+	 
 </body>
 <script type="text/javascript" src="js/script.js"></script>
 </html>
