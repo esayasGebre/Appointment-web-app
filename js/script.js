@@ -20,7 +20,7 @@ $('#newApp').click(function (){
          		$("#appForm").submit();
         
      		}else{
-         		$('#ifError').append("<strong>Error: All inputs are requeired...</strong>");
+         		$('#ifError').append("<strong>Error: All inputs are required...</strong>");
      		}
 	}
 });
