@@ -18,6 +18,7 @@ Requirements:
 
 -Put index.html, style.css and js directory into:  C:\xampp\htdocs\appointmentApp
 
+
 To run the app in the local machine use url::
 http://localhost/appointmentApp/
 
