@@ -39,11 +39,9 @@ $('#cancelApp').click(function(){
    $('#cancelApp').hide();
 });
 
-//$('#searchButton').click( function getAppointments(){
 $('#searchButton').click(getAppointments);
-
 function getAppointments(){
-   $('#ifNoAppData').empty();
+
    var search = $('#searchText').val();
    $.ajax({
         type: 'POST',
@@ -51,14 +49,13 @@ function getAppointments(){
         dataType: 'json',
         data: { 'searchValue' : search },
         success: function(data){
-		
             $('#tableContent').empty();
+            $('#ifNoAppData').empty();
 
             if( data.length === 0 ){
 		$('#ifNoAppData').append('<h3>There is no appointment with description__:  <em>' + search + '</em>.</h3>');
             }
             else{
-               $('#ifNoAppData').empty();
                $('#tableContent').append('<tr><th>DATE</th> <th>TIME</th> <th>DESCRIPTION</th></tr>');
                
                for(var key in data){
