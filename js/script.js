@@ -22,14 +22,12 @@ $('#newApp').click(function(){
 	}
 });
 
-//The DATE input should contain a date picker with built in validation.
-//(Appointments shouldn't be made in the past).
+
+//to handle an appointments made in the past
 function futureDate(inputDate) {
    var currentDate = new Date().getTime();
    ddate = inputDate.split("-");
    inputDate = new Date(ddate[0], ddate[1]-1, ddate[2]).getTime();
-   //console.log(inputDate);
-   //console.log(currentDate);
    return (inputDate >= currentDate) ? true : false;
 }
    
