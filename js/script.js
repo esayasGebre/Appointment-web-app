@@ -63,11 +63,12 @@ function getAppointments(){
                
                for(var key in data){
                   if(key){
-                     $('#tableContent').append('<tr>');		
-                     $('#tableContent').append('<td><h4>' + data[key].date + '</h4></td>' +
-                     '<td><h4>' + data[key].time + '</h4></td>' + '<td><h4>' + data[key].description + '</h4></td>');
-              
-                     $('#tableContent').append('</tr>');
+			var row = '<tr>';
+                  	row = row +  '<td>' + data[key].date + '</td>' +
+                     		'<td>' + data[key].time + '</td>' +
+                     		'<td>' + data[key].description + '</td>';
+                  	row = row + '</tr>';
+                  	$('#tableContent').append(row);
                   }
                } 
             }
