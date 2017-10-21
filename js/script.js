@@ -1,6 +1,7 @@
 
 $( document ).ready(function() {
    $('#cancelApp').hide();
+   $('#addAppointment').hide();
 });
 
 $('#newApp').click(function (){
