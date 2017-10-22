@@ -27,7 +27,7 @@ use JSON -support_by_pp;
 	my $data_json=[];
 	while (my @row = $sth->fetchrow_array) {
 	#putting the result set to the array of object
-		push @{$data_json},{'date'=>$row[1],'time'=>$row[2],'description'=>$row[3]}; 
+		push @{$data_json},{'date'=>$row[0],'time'=>$row[1],'description'=>$row[2]}; 
 	}
     	$sth->finish();
     	$dbh -> disconnect();
