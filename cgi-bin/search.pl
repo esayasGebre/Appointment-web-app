@@ -2,36 +2,34 @@
 
 use DBI;
 use CGI qw(:standard);
+use utf8;
+use Encode;
+print header('application/json');
+use JSON -support_by_pp;
 
-#Checks post request
-if($ENV{'REQUEST_METHOD'} eq 'POST'){ 
+#assign the serche value to the variable
+#called str that came from search inptbox 
+my $str =param("searchValue");
+my $dbh =DBI->connect("dbi:SQLite:appDB.db") || die "can not connect to the database";
+my $sql;
 
-    my $dbh =DBI->connect("dbi:SQLite:appDB.db")
-    || die $DBI::errstr;
-
-#assigning each parametres to the spacific variables and
-#on bellow INSERT statment I have used it to store  to the database
-    my $date=param("date"); 
-    my $time=param("time"); 
-    my $descriptionValue=param("description"); 
-   
-#if appointment table not exist the bellow command
-#will create a new table with the name of appointment. 
-    $dbh->do("CREATE TABLE appointment(
-           date TEXT,
-           time TEXT,
-           description VARCHAR(100))");
-
-#prepare statement and store the recored to the database table called appointment 
-    my $sth = $dbh->prepare("INSERT INTO appointment
-                          (date,time,description) VALUES(?,?,?)");
-    $sth ->execute($date, $time,$descriptionValue) || die $DBI::errstr;
-    $sth->finish();
-
-#clse database
-    $dbh->disconnect(); 
+#to get all appointment (if search input box null)
+if($str eq ""){
+	$sql='SELECT * FROM appointment';
 }
 
-#Redirect to the main page (index.html in side directory perlApp)
-print ("Location: http://localhost\\appointmentApp\n");      
-print ("Content-type: text/html\n\n");
+#get recoreds only that have content of str in any location of the description attribute 
+$sql = 'SELECT * FROM appointment WHERE description LIKE ?';
+my $sth = $dbh->prepare($sql);
+$sth->execute("%$str%");
+my $data_json=[];
+while (my @row = $sth->fetchrow_array) {
+	#putting Result set to array of objcts
+	push @{$data_json},{'date'=>$row[1],'time'=>$row[2],'description'=>$row[3]}; 
+}
+
+$dbh -> disconnect();
+
+# converting all pushed result sets of data_json to json object json_object
+my $json_object = to_json( $data_json, { utf8 => 1, pretty => 1 } ); 
+print "$json_object";
