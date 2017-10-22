@@ -22,4 +22,4 @@ Requirements:
 To run the app in the local machine use url::
 http://localhost/appointmentApp/
 
-Please check out the attached application screenshot.pdf  it shows you the graphical flow of this application.
+Please check out the attached application screenshot updatedCSS.pdf  it shows you the graphical flow of this application.
